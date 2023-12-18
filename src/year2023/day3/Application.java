@@ -16,7 +16,7 @@ public class Application {
 
 	public static void main(String[] args) {
 		
-		String path = "d:\\Sviluppo\\gondola.txt";
+		String path = "d:\\gondola.txt";
 		
 		try {
 		
@@ -28,10 +28,10 @@ public class Application {
 			//int i = 0;
 			int r = 0;
 			String line;
-			//String[] lines = new String[br.lines().collect(Collectors.toList()).size()];
+			String[] lines = new String[140];
 			// read airplane seats
 			while ((line = br.readLine()) != null) {
-				//lines[r] = line;
+				lines[r] = line;
 				System.out.println(line);
 				r++;
 			}
