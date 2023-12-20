@@ -30,7 +30,30 @@ public class Hand implements Comparable<Hand>{
                 Arrays.sort(sorted);
                 for(char c : newHand.toCharArray())
                     distinct.add(c);
-                switch (distinct.size()) {
+                if (distinct.size() == 1){
+                	potType = 1;
+                }
+                else if (distinct.size() == 2){
+                	 if (sorted[0] != sorted[1] || sorted[3] != sorted[4])
+                         potType = 2;
+                     else
+                         potType = 3;
+                }
+                else if (distinct.size() == 3){
+                	if ((sorted[0] == sorted[1] && sorted[1] == sorted[2]) || (sorted[1] == sorted[2] && sorted[2] == sorted[3]) || (sorted[2] == sorted[3] && sorted[3] == sorted[4]))
+                        potType = 4;
+                    else
+                        potType = 5;
+                }
+                else if (distinct.size() == 4){
+                	potType = 6;
+                }
+                else if (distinct.size() == 5 ){
+                	potType = 7;
+                }
+                else
+                	System.out.println("Errore!");
+                /*switch (distinct.size()) {
                     case 1 : potType = 1;
                     case 2 : {
                         if (sorted[0] != sorted[1] || sorted[3] != sorted[4])
@@ -46,7 +69,7 @@ public class Hand implements Comparable<Hand>{
                     }
                     case 4 : potType = 6;
                     case 5 : potType = 7;
-                }
+                }*/
                 type = Math.min(type,potType);
             }
             return;
@@ -57,7 +80,31 @@ public class Hand implements Comparable<Hand>{
         Arrays.sort(sorted);
         for(char c : hand.toCharArray())
             distinct.add(c);
-        switch (distinct.size()) {
+        if (distinct.size() == 1){
+        	type = 1;
+        }
+        else if (distinct.size() ==  2){
+        	if (sorted[0] != sorted[1] || sorted[3] != sorted[4])
+                type = 2;
+            else
+                type = 3;
+        }
+        else if (distinct.size() == 3 ){
+        	if ((sorted[0] == sorted[1] && sorted[1] == sorted[2]) || (sorted[1] == sorted[2] && sorted[2] == sorted[3]) || (sorted[2] == sorted[3] && sorted[3] == sorted[4]))
+                type = 4;
+            else
+                type = 5;
+        }
+        else if (distinct.size() == 4){
+        	type = 6;
+        }
+        else if (distinct.size() == 5){
+        	type = 7;
+        }
+        else {
+        	System.out.println("Errore!");
+        }
+        /*switch (distinct.size()) {
             case 1 : type = 1;
             case 2 : {
                 if (sorted[0] != sorted[1] || sorted[3] != sorted[4])
@@ -73,7 +120,7 @@ public class Hand implements Comparable<Hand>{
             }
             case 4 : type = 6;
             case 5 : type = 7;
-        }
+        }*/
     }
 
     String order = new String(new char[] {'A','K','Q','J','T','9','8','7','6','5','4','3','2'});
@@ -88,8 +135,8 @@ public class Hand implements Comparable<Hand>{
         for(int i = 0; i < 5; i++) {
             if(this.hand.charAt(i)==o.hand.charAt(i))
                 continue;
-            System.out.println("h: " + o.hand + " h2: " + this.hand);
-            System.out.println(Integer.compare((part2 ? order2: order).indexOf(o.hand.charAt(i)) ,(part2 ? order2 : order).indexOf(this.hand.charAt(i))));
+            
+            //System.out.println(Integer.compare((part2 ? order2: order).indexOf(o.hand.charAt(i)) ,(part2 ? order2 : order).indexOf(this.hand.charAt(i))));
             return Integer.compare((part2 ? order2: order).indexOf(o.hand.charAt(i)) ,(part2 ? order2 : order).indexOf(this.hand.charAt(i)));
             //return (part2 ? order2: order).indexOf(o.hand.charAt(i)) - (part2 ? order2 : order).indexOf(this.hand.charAt(i));
         }

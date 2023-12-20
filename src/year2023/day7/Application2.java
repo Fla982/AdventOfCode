@@ -10,7 +10,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
-public class Application {
+public class Application2 {
 
 	
 
@@ -31,7 +31,7 @@ public class Application {
 			// read airplane seats
 			while ((line = br.readLine()) != null) {
 				String[] parts = line.split(" ");
-				Hand hand = new Hand(parts[0],Integer.parseInt(parts[1]),false);
+				Hand hand = new Hand(parts[0],Integer.parseInt(parts[1]),true);
 				hands.add(hand);
 				
 				System.out.println("Riga " + r + ": Value: " + line + " Type: " + hand.type);
