@@ -29,7 +29,7 @@ public class Application {
 			long total = 0;
 			int r = 0;
 			String line; 
-			// read airplane seats
+			// read oasis file
 			while ((line = br.readLine()) != null) {
 				ArrayList<ArrayList<Integer>> tower = new ArrayList<>();
 	            ArrayList<Integer> start = new ArrayList<>();
